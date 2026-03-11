@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Парфюмерная мастерская «Эссенция» — создание собственного аромата в Твери</title>
+  <meta name="description" content="Парфюмерная мастерская «Эссенция» в Твери. Индивидуальные и групповые мастер-классы по созданию собственного аромата, сертификаты, выездные мероприятия, рефилл." />
+  <style>
+    :root{
+      --bg:#fffaf7;
+      --bg-soft:#f8f1ec;
+      --card:#ffffff;
+      --text:#2f2522;
+      --muted:#6e5b55;
+      --accent:#a66b5b;
+      --accent-dark:#8b5648;
+      --line:#eadbd3;
+      --shadow:0 10px 30px rgba(70,40,30,.08);
+      --radius:20px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.55;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      border-radius:999px;
+      background:var(--accent);
+      color:#fff;
+      font-weight:700;
+      transition:.2s ease;
+      border:2px solid var(--accent);
+    }
+
+    .btn:hover{background:var(--accent-dark);border-color:var(--accent-dark)}
+    .btn-outline{
+      background:transparent;
+      color:var(--accent);
+    }
+    .btn-outline:hover{
+      color:#fff;
+      background:var(--accent);
+    }
+
+    .section{
+      padding:72px 0;
+    }
+
+    .section-title{
+      font-size:36px;
+      line-height:1.15;
+      margin:0 0 14px;
+    }
+
+    .section-subtitle{
+      font-size:18px;
+      color:var(--muted);
+      margin:0 0 34px;
+      max-width:760px;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(255,250,247,.92);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:14px 0;
+    }
+
+    .logo{
+      font-size:22px;
+      font-weight:800;
+      letter-spacing:.3px;
+    }
+
+    .logo small{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      font-weight:500;
+      letter-spacing:0;
+      margin-top:2px;
+    }
+
+    .nav{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      align-items:center;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .hero{
+      padding:72px 0 54px;
+      background:
+        radial-gradient(circle at top right, rgba(166,107,91,.12), transparent 28%),
+        radial-gradient(circle at left bottom, rgba(166,107,91,.10), transparent 26%),
+        var(--bg);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .hero-card,
+    .info-card,
+    .card,
+    .price-card,
+    .faq-item,
+    .contact-card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .hero h1{
+      font-size:54px;
+      line-height:1.06;
+      margin:0 0 18px;
+    }
+
+    .hero p{
+      font-size:19px;
+      color:var(--muted);
+      margin:0 0 26px;
+      max-width:700px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:26px;
+    }
+
+    .badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .badge{
+      padding:10px 14px;
+      border-radius:999px;
+      background:var(--bg-soft);
+      border:1px solid var(--line);
+      font-size:14px;
+      color:var(--text);
+    }
+
+    .hero-side{
+      padding:28px;
+    }
+
+    .hero-side h3{
+      margin:0 0 14px;
+      font-size:24px;
+    }
+
+    .hero-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:12px;
+      color:var(--muted);
+    }
+
+    .hero-list li{
+      padding-bottom:12px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .hero-list li:last-child{
+      border-bottom:none;
+      padding-bottom:0;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+    }
+
+    .card{
+      padding:24px;
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      font-size:22px;
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .formats .card{
+      min-height:180px;
+    }
+
+    .prices-wrap{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:20px;
+    }
+
+    .price-card{
+      padding:24px;
+      overflow:auto;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:15px;
+    }
+
+    th, td{
+      text-align:left;
+      padding:12px 10px;
+      border-bottom:1px solid var(--line);
+      vertical-align:top;
+    }
+
+    th{
+      font-size:14px;
+      color:var(--muted);
+      font-weight:700;
+      background:var(--bg-soft);
+    }
+
+    .small-note{
+      font-size:14px;
+      color:var(--muted);
+      margin-top:14px;
+    }
+
+    .list{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+
+    .list li + li{
+      margin-top:10px;
+    }
+
+    .highlight{
+      background:linear-gradient(180deg, transparent 55%, rgba(166,107,91,.14) 55%);
+      font-weight:700;
+    }
+
+    .faq{
+      display:grid;
+      gap:14px;
+    }
+
+    .faq-item{
+      padding:20px 22px;
+    }
+
+    .faq-item h3{
+      margin:0 0 8px;
+      font-size:20px;
+    }
+
+    .faq-item p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .contacts{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:20px;
+    }
+
+    .contact-card{
+      padding:26px;
+    }
+
+    .contact-card h3{
+      margin:0 0 14px;
+      font-size:24px;
+    }
+
+    .contact-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:12px;
+      color:var(--muted);
+    }
+
+    .contact-list strong{
+      color:var(--text);
+    }
+
+    .footer{
+      padding:32px 0 50px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .footer-box{
+      border-top:1px solid var(--line);
+      padding-top:20px;
+    }
+
+    .muted-box{
+      background:var(--bg-soft);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,
+      .grid-3,
+      .grid-2,
+      .prices-wrap,
+      .contacts{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:40px;
+      }
+
+      .section-title{
+        font-size:30px;
+      }
+
+      .nav{
+        display:none;
+      }
+    }
+
+    @media (max-width: 640px){
+      .hero{
+        padding-top:42px;
+      }
+
+      .hero h1{
+        font-size:34px;
+      }
+
+      .hero p{
+        font-size:17px;
+      }
+
+      .section{
+        padding:54px 0;
+      }
+
+      .topbar-inner{
+        gap:10px;
+      }
+
+      .logo{
+        font-size:18px;
+      }
+
+      .btn{
+        width:100%;
+        text-align:center;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="logo">
+        Эссенция
+        <small>Парфюмерная мастерская в Твери</small>
+      </div>
+      <nav class="nav">
+        <a href="#about">О мастерской</a>
+        <a href="#formats">Форматы</a>
+        <a href="#prices">Цены</a>
+        <a href="#certificates">Сертификаты</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Создайте свой аромат в парфюмерной мастерской «Эссенция»</h1>
+        <p>
+          Индивидуальные, парные и групповые мастер-классы в Твери.
+          Подходит для свиданий, дней рождения, девичников, встреч с друзьями и подарков.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="tel:+79966342585">Позвонить и записаться</a>
+          <a class="btn btn-outline" href="#prices">Смотреть цены</a>
+        </div>
+        <div class="badges">
+          <div class="badge">Ежедневно с 10:00 до 22:00</div>
+          <div class="badge">По предварительной записи</div>
+          <div class="badge">Подарочные сертификаты</div>
+          <div class="badge">Выездные мероприятия</div>
+          <div class="badge">Рефилл аромата</div>
+        </div>
+      </div>
+
+      <div class="hero-card hero-side">
+        <h3>Кратко о главном</h3>
+        <ul class="hero-list">
+          <li><strong>Адрес:</strong> г. Тверь, ул. Симеоновская, д. 17</li>
+          <li><strong>Важно:</strong> вход в здание со стороны Тверского проспекта</li>
+          <li><strong>Телефон:</strong> +7 (996) 634-25-85</li>
+          <li><strong>Предоплата:</strong> 1 500 ₽, входит в итоговую стоимость</li>
+          <li><strong>Возврат:</strong> возможен при отмене или переносе не позднее чем за 12 часов</li>
+          <li><strong>Оплата в студии:</strong> по QR-коду, терминала для карт нет</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">О мастерской</h2>
+      <p class="section-subtitle">
+        «Эссенция» — парфюмерная мастерская, где гости создают собственный аромат в формате духов.
+        Это необычный формат отдыха, подарка и праздника, который объединяет впечатление и готовый результат.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Собственный аромат</h3>
+          <p>
+            На мастер-классе каждый участник создаёт уникальную композицию и уходит с готовым флаконом духов.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Подходит для событий</h3>
+          <p>
+            Свидание, день рождения, девичник, встреча с друзьями, семейный выход или камерное мероприятие.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Удобные форматы</h3>
+          <p>
+            Можно прийти одному, вдвоём, небольшой компанией или организовать групповое либо выездное мероприятие.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formats" class="section formats" style="background:var(--bg-soft);">
+    <div class="container">
+      <h2 class="section-title">Форматы участия</h2>
+      <p class="section-subtitle">
+        На сайте собрана вся основная информация, чтобы вы быстро поняли, какой формат подходит именно вам.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Индивидуальный мастер-класс</h3>
+          <p>
+            Формат для одного человека. Доступен объём 20 мл. Подходит для личного опыта и знакомства с миром ароматов.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Для двоих</h3>
+          <p>
+            Популярный формат для свидания или совместного впечатления. Можно выбрать флаконы 15, 20 или 25 мл.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Для компании</h3>
+          <p>
+            Частные групповые мастер-классы для праздников, дней рождения, девичников и встреч с друзьями.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Групповые МК по расписанию</h3>
+          <p>
+            Запись в общую группу на фиксированное время. Доступны форматы 10, 15 и 20 мл.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Выездные мероприятия</h3>
+          <p>
+            Проведение мастер-класса на вашей площадке в Твери и Калининском районе. Стандартно — от 5 участников.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Рефилл и сертификаты</h3>
+          <p>
+            Можно подарить впечатление в виде сертификата или заказать повторный выпуск аромата по готовой формуле.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Что получает гость</h2>
+      <p class="section-subtitle">
+        Этот блок помогает посетителю сразу понять ценность услуги и снять основные вопросы перед записью.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Готовый парфюм</h3>
+          <p>
+            Все ароматы создаются в концентрации <span class="highlight">«духи»</span>.
+            Заявленная стойкость — <span class="highlight">от 5 до 6 часов</span> на коже.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Выбор объёма</h3>
+          <p>
+            На мастер-классе доступны объёмы 10, 15, 20 и 25 мл, в зависимости от выбранного формата участия.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Атмосферный формат</h3>
+          <p>
+            Пространство подходит для камерных событий: в студии комфортно до 14 участников одновременно.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Праздничный формат</h3>
+          <p>
+            На праздничные мероприятия можно приносить свой алкоголь, а студия предоставляет базовую посуду и сервировку.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prices" class="section" style="background:var(--bg-soft);">
+    <div class="container">
+      <h2 class="section-title">Цены</h2>
+      <p class="section-subtitle">
+        Ниже собран основной прайс на мастер-классы, групповые форматы, рефилл и дополнительные услуги.
+      </p>
+
+      <div class="prices-wrap">
+        <div class="price-card">
+          <h3 style="margin-top:0;">Индивидуальные и частные мастер-классы</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Количество участников</th>
+                <th>15 мл</th>
+                <th>20 мл</th>
+                <th>25 мл</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1 человек</td><td>—</td><td>4 000 ₽</td><td>—</td></tr>
+              <tr><td>2 человека</td><td>3 000 ₽</td><td>3 200 ₽</td><td>3 300 ₽</td></tr>
+              <tr><td>3 человека</td><td>2 600 ₽</td><td>2 900 ₽</td><td>3 000 ₽</td></tr>
+              <tr><td>4 человека</td><td>2 300 ₽</td><td>2 700 ₽</td><td>2 800 ₽</td></tr>
+              <tr><td>5 человек</td><td>2 100 ₽</td><td>2 500 ₽</td><td>2 600 ₽</td></tr>
+              <tr><td>6 человек</td><td>2 000 ₽</td><td>2 400 ₽</td><td>2 500 ₽</td></tr>
+              <tr><td>7 человек</td><td>1 900 ₽</td><td>2 300 ₽</td><td>2 400 ₽</td></tr>
+              <tr><td>8 человек</td><td>1 800 ₽</td><td>2 200 ₽</td><td>2 300 ₽</td></tr>
+              <tr><td>9 человек</td><td>1 700 ₽</td><td>2 100 ₽</td><td>2 200 ₽</td></tr>
+              <tr><td>10 человек</td><td>1 600 ₽</td><td>2 050 ₽</td><td>2 150 ₽</td></tr>
+              <tr><td>11 человек</td><td>1 600 ₽</td><td>2 000 ₽</td><td>2 100 ₽</td></tr>
+              <tr><td>12 человек</td><td>1 600 ₽</td><td>1 950 ₽</td><td>2 050 ₽</td></tr>
+              <tr><td>13 человек</td><td>1 600 ₽</td><td>1 900 ₽</td><td>2 000 ₽</td></tr>
+              <tr><td>14–30 человек</td><td>1 500 ₽</td><td>1 800 ₽</td><td>1 900 ₽</td></tr>
+              <tr><td>от 31 человека</td><td>Индивидуально</td><td>Индивидуально</td><td>Индивидуально</td></tr>
+            </tbody>
+          </table>
+          <p class="small-note">
+            Для групп от 14 до 30 человек действует фиксированная цена за участника.
+          </p>
+        </div>
+
+        <div style="display:grid; gap:20px;">
+          <div class="price-card">
+            <h3 style="margin-top:0;">Групповые МК по расписанию</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Объём</th>
+                  <th>Цена за 1 человека</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>10 мл</td><td>2 000 ₽</td></tr>
+                <tr><td>15 мл</td><td>2 200 ₽</td></tr>
+                <tr><td>20 мл</td><td>2 500 ₽</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="price-card">
+            <h3 style="margin-top:0;">Рефилл</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Объём</th>
+                  <th>Цена</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>15 мл</td><td>2 000 ₽</td></tr>
+                <tr><td>30 мл</td><td>3 000 ₽</td></tr>
+                <tr><td>50 мл</td><td>4 000 ₽</td></tr>
+                <tr><td>100 мл</td><td>5 000 ₽</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="price-card">
+            <h3 style="margin-top:0;">Дополнительно</h3>
+            <table>
+              <tbody>
+                <tr><td>Предоплата / бронь</td><td>1 500 ₽</td></tr>
+                <tr><td>Сопровождение без участия</td><td>+ 1 500 ₽</td></tr>
+                <tr><td>Выезд мастера</td><td>+ 1 500 ₽</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certificates" class="section">
+    <div class="container">
+      <h2 class="section-title">Подарочные сертификаты</h2>
+      <p class="section-subtitle">
+        Удобный вариант, если вы хотите подарить впечатление, а не вещь. Сертификаты доступны в бумажном и электронном формате.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Основная информация</h3>
+          <ul class="list">
+            <li>Срок действия сертификата — <strong>6 месяцев</strong> с момента покупки.</li>
+            <li>Доступны <strong>бумажные</strong> и <strong>электронные</strong> версии.</li>
+            <li>Бумажный сертификат можно доставить курьерской службой такси за отдельную плату.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Сертификаты для двоих</h3>
+          <ul class="list">
+            <li>15 мл — <strong>6 000 ₽</strong></li>
+            <li>20 мл — <strong>6 400 ₽</strong></li>
+            <li>25 мл — <strong>6 600 ₽</strong></li>
+            <li>Также доступны сертификаты на коллективные МК по цене мастер-класса.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--bg-soft);">
+    <div class="container">
+      <h2 class="section-title">Выездные мероприятия и комфорт в студии</h2>
+      <p class="section-subtitle">
+        Отдельные условия для выездов и всё важное, что стоит знать о пребывании в студии.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Выездные мастер-классы</h3>
+          <ul class="list">
+            <li>Проводятся в <strong>Твери</strong> и <strong>Калининском районе</strong>.</li>
+            <li>Стандартный выезд — для групп <strong>от 5 участников</strong>.</li>
+            <li>Если участников меньше, расчёт производится как за минимальный пакет — <strong>за 5 человек</strong>.</li>
+            <li>К общей стоимости добавляется сбор за выезд — <strong>1 500 ₽</strong>.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Комфорт в студии</h3>
+          <ul class="list">
+            <li>Комфортная вместимость — до <strong>14 участников</strong>.</li>
+            <li>Рядом находится <strong>платная городская парковка</strong>.</li>
+            <li>В субботу и воскресенье парковка <strong>бесплатна</strong>.</li>
+            <li>На праздничные мероприятия можно приносить <strong>свой алкоголь</strong>.</li>
+            <li>Студия предоставляет бокалы, чашки, десертные ложки, блюдца, нож для торта и сервировочные тарелки.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Важная информация перед записью</h2>
+      <p class="section-subtitle">
+        Этот блок помогает заранее ответить на организационные вопросы и снизить число уточнений перед визитом.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Бронирование</h3>
+          <p>
+            Запись осуществляется по предварительному бронированию. Для фиксации записи требуется предоплата 1 500 ₽,
+            которая включается в общую стоимость.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Отмена и перенос</h3>
+          <p>
+            Полный возврат предоплаты возможен при отмене или переносе записи не позднее чем за 12 часов до визита.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Оплата</h3>
+          <p>
+            В студии принимается оплата по QR-коду. Терминала для банковских карт нет — это важно учесть заранее.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Возраст</h3>
+          <p>
+            К участию допускаются взрослые и дети от 7 лет. Дети до 12 лет могут находиться только под присмотром взрослых.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Сопровождающие</h3>
+          <p>
+            Присутствие гостей, не участвующих в создании аромата, оплачивается отдельно — 1 500 ₽ за каждого человека.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Аллергия</h3>
+          <p>
+            Гипоаллергенные вещества не заявлены. При аллергии на запахи посещение мастерской не рекомендуется.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section" style="background:var(--bg-soft);">
+    <div class="container">
+      <h2 class="section-title">Частые вопросы</h2>
+      <p class="section-subtitle">
+        Здесь собраны ответы на вопросы, которые чаще всего интересуют клиентов перед записью.
+      </p>
+
+      <div class="faq">
+        <div class="faq-item">
+          <h3>Нужна ли предоплата?</h3>
+          <p>Да. Для бронирования нужна фиксированная предоплата 1 500 ₽. Она входит в итоговую стоимость услуги.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Можно ли вернуть предоплату?</h3>
+          <p>Да. Полный возврат возможен при отмене или переносе записи не позднее чем за 12 часов.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Какие объёмы доступны?</h3>
+          <p>На мастер-классах доступны объёмы 10, 15, 20 и 25 мл. Формат 10 мл доступен только для групповых МК по расписанию.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Можно ли прийти с ребёнком?</h3>
+          <p>Да, участие возможно для детей от 7 лет. Дети до 12 лет должны находиться под присмотром взрослых.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Можно ли прийти с сопровождающим?</h3>
+          <p>Да, но присутствие гостя без участия в создании парфюма оплачивается отдельно — 1 500 ₽ за человека.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Есть ли выездной формат?</h3>
+          <p>Да. Выездные мастер-классы проводятся в Твери и Калининском районе. Обычно — от 5 участников.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Можно ли повторно заказать аромат?</h3>
+          <p>Да, доступна услуга рефилла в объёмах 15, 30, 50 и 100 мл по готовой формуле.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Сохраняется ли формула аромата?</h3>
+          <p>Мастерская не сохраняет формулы ароматов гостей, поэтому рекомендуется самостоятельно фотографировать рецепт.</p>
+        </div>
+      </div>
+
+      <div class="muted-box" style="margin-top:18px;">
+        Обратите внимание: в данных есть и услуга «рефилл», и рекомендация фотографировать рецепт самостоятельно.
+        Перед публикацией сайта желательно уточнить у компании, как именно оформляется повторный заказ по готовой формуле.
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts" class="section">
+    <div class="container">
+      <h2 class="section-title">Контакты и запись</h2>
+      <p class="section-subtitle">
+        Если вы уже выбрали удобный формат, свяжитесь с мастерской для бронирования даты и времени.
+      </p>
+
+      <div class="contacts">
+        <div class="contact-card">
+          <h3>Контактная информация</h3>
+          <ul class="contact-list">
+            <li><strong>Парфюмерная мастерская:</strong> «Эссенция»</li>
+            <li><strong>Телефон:</strong> <a href="tel:+79966342585">+7 (996) 634-25-85</a></li>
+            <li><strong>Адрес:</strong> г. Тверь, ул. Симеоновская, д. 17</li>
+            <li><strong>Навигация:</strong> вход в здание со стороны Тверского проспекта</li>
+            <li><strong>График работы:</strong> ежедневно с 10:00 до 22:00</li>
+            <li><strong>Формат посещения:</strong> по предварительной записи</li>
+          </ul>
+          <div style="margin-top:20px;">
+            <a class="btn" href="tel:+79966342585">Записаться по телефону</a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3>Юридическая информация</h3>
+          <ul class="contact-list">
+            <li><strong>Официальное наименование:</strong> ИП Степанова Ольга Сергеевна</li>
+            <li><strong>ИНН:</strong> 690892533249</li>
+            <li><strong>ОГРНИП:</strong> 323695200032675</li>
+          </ul>
+
+          <div class="muted-box" style="margin-top:18px;">
+            Для повышения доверия можно дополнительно разместить на сайте карту, фото входа в здание,
+            фото студии, фото флаконов и отзывы клиентов.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-box">
+      <div>© Парфюмерная мастерская «Эссенция»</div>
+      <div style="margin-top:8px;">
+        Одностраничный сайт с основной информацией для клиентов: форматы участия, цены, правила бронирования, сертификаты и контакты.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
